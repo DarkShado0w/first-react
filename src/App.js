@@ -2,6 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const person = {
+    name: 'test',
+    age:23,
+    address:'kathmandu'
+  };
+  const courseName ="MERN";
+  const url = "https://google.com";
+  const scores = [20,23,25,23,22,12];
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +23,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React and {courseName}
         </a>
       </header>
     </div>
