@@ -25,6 +25,12 @@ function App() {
         >
           Learn React and {courseName}
         </a>
+        <h1>
+          {person.name} is {person.age} years old lives in {person.address} His scores are 
+        </h1>
+        <ul>
+          {scores.map(s=><li>{s}</li>)}
+        </ul>
       </header>
     </div>
   );
