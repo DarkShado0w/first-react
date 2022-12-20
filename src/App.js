@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Stock from './Stock';
 function App() {
   const person = {
     name: 'test',
@@ -32,6 +32,7 @@ function App() {
           {scores.map(s=><li>{s}</li>)}
         </ul>
       </header>
+      < Stock />
     </div>
   );
 }
