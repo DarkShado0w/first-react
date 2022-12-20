@@ -1,7 +1,6 @@
-import React from "react"
+import React from "react";
 
-const Stock = () =>{
+const Stock = () => {
     return <div>Stock</div>;
-
 };
 export default Stock;
