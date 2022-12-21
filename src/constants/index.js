@@ -1,4 +1,4 @@
-const STOCKS = [
+export const STOCKS = [
     {
       securityId: "2790",
       securityName: "Aarambha Chautari Laghubitta Bittiya Sanstha Limited",
