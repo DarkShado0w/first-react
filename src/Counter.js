@@ -6,7 +6,7 @@ import { useState } from "react";
 const Counter = () => {
   const [count, setCount] = useState(0); 
   const handleClickPlus = (e) => setCount(count + 1);
-  const handleClickMinus = (e) => setCount(count - 1);
+  const handleClickMinus = (e) => count > 1 ? setCount(count - 1):void 0
   // state to be used later
   return (
     <div>
