@@ -1,6 +1,10 @@
 import React from "react";
 import {BsTrash} from 'react-icons/bs';
-const Stock = ({securityName, symbol ,lastTradePrice, ...rest }) => {
+const Stock = ({
+    securityName,
+     symbol ,
+     lastTradePrice,
+      ...rest }) => {
   console.log(rest,"in stock");
     return (
         <div 
@@ -14,8 +18,8 @@ const Stock = ({securityName, symbol ,lastTradePrice, ...rest }) => {
         > 
           <span>{securityName}</span>
           <span>{symbol}</span>
-            <div><span>{lastTradePrice}</span>
-            <BsTrash onClick={()=>{}}/>
+            <div><span>{lastTradedPrice}</span>
+            <BsTrash onClick={() => onRemove(rest.securityId)} />
             </div>
         </div>
     );
