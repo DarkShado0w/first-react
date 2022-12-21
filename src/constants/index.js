@@ -1,7 +1,7 @@
 export const STOCKS = [
     {
       securityId: "2790",
-      securityName: "Aarambha Chautari Laghubitta Bittiya Sanstha Limited",
+      securityName: "Aarambha ABCD Chautari Laghubitta Bittiya Sanstha Limited",
       symbol: "ACLBSL",
       indexId: 58,
       totalTradeQuantity: 285,
