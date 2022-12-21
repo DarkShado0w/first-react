@@ -14,7 +14,8 @@ function App() {
   return (
     <div className="App">
       {STOCKS.map((stock)=>(
-        <Stock securityName= {stock.securityName} symbol={stock.symbol} lastTradePrice={stock.lastTradePrice}/>
+        <Stock 
+        key={stock.securityId} securityName= {stock.securityName} symbol={stock.symbol} lastTradePrice={stock.lastTradePrice}/>
       ))}
       
       <header className="App-header">
