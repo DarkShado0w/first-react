@@ -1,12 +1,12 @@
 import React from "react";
 
-const Stock = (props)=>{
-    console.log(props);
+const Stock = ({securityName,symbol,lastTradePrice }) => {
+    // console.log(props);
     return (
         <div>
-            <h1>{props.securityName}</h1>
-            <h2>{props.symbol}</h2>
-            <h2>{props.lastTradePrice}</h2>
+            <h1>{securityName}</h1>
+            <h2>{symbol}</h2>
+            <h2>{lastTradePrice}</h2>
         </div>
     )
 }
