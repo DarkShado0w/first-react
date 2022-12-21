@@ -13,7 +13,10 @@ function App() {
   const scores = [20,23,25,23,22,12];
   return (
     <div className="App">
-      <Stock securityname="abcd" symbol="ABCD" lastTradePrice="3444"/>
+      {STOCKS.map((stock)=>(
+        <Stock securityName= {stock.securityName} symbol={stock.symbol} lastTradePrice={stock.lastTradePrice}/>
+      ))}
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
