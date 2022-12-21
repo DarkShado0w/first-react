@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Stock from './Stock';
+import {STOCKS} from "./constants";
 function App() {
   const person = {
     name: 'test',

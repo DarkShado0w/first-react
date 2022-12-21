@@ -77,3 +77,4 @@ const STOCKS = [
       previousClose: 343,
     },
   ];
+  
