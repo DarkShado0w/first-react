@@ -1,6 +1,6 @@
 import React from "react";
 
-const Stock = ({securityName,symbol,lastTradePrice }) => {
+const Stock = ({securityName, symbol ,lastTradePrice}) => {
     // console.log(props);
     return (
         <div>
