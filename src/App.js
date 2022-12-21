@@ -3,13 +3,11 @@ import './App.css';
 import Stock from './Stock';
 import {STOCKS} from "./constants";
 import Counter from './Counter';
-
+import {useState} from "react";
 function App() {
-  const person = {
-    name: 'test',
-    age:23,
-    address:'kathmandu'
-  };
+  const [stocks, setStocks] = useState(STOCKS);
+  
+  
   const courseName ="MERN";
   const url = "https://google.com";
   const scores = [20,23,25,23,22,12];
@@ -34,9 +32,7 @@ function App() {
         >
           Learn React and {courseName}
         </a>
-        <h1>
-          {person.name} is {person.age} years old lives in {person.address} His scores are 
-        </h1>
+        
         <ul>
           {scores.map(s=><li>{s}</li>)}
         </ul>
