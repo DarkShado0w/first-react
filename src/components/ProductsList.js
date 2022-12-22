@@ -31,7 +31,9 @@ const ProductsList = () => {
     setEditMode(true);
     setSelectdProduct(product);
   };
-
+const updateProduct =() => {
+  setProducts(products.map(p=>p.id === selectedProduct.id ?{...selectedProduct,name,brand,price}:p));
+};
   return (
     <div>
       <h1>Products List</h1>
@@ -80,9 +82,9 @@ const ProductsList = () => {
           placeholder="Price"
           type="number"
         />
-        <button className="" onClick={addProduct} >
-        {editMode ? "Update" : "Add"}
-          Add
+        <button className="" onClick={editMode ? updateProduct : addProduct}>
+          {editMode ? "Update" : "Add"}
+
         </button>
       </div>
     </div>
