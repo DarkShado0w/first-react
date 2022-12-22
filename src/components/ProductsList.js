@@ -33,8 +33,14 @@ const ProductsList = () => {
   };
 const updateProduct =() => {
   setProducts(products.map(p=>p.id === selectedProduct.id ?{...selectedProduct,name,brand,price}:p));
+  setEditMode(false);
+setName('');
+setBrand('');
+setPrice('');
+setSelectdProduct(null);
 };
-  return (
+
+return (
     <div>
       <h1>Products List</h1>
       <div className="products-container">
