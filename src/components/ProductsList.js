@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
@@ -10,8 +11,11 @@ const ProductsList = () => {
   const [selectedProduct, setSelectdProduct] = useState(null);
   const [editMode, setEditMode] = useState(false);
 
-  const addProduct = () =>
-    setProducts([
+  const addProduct = () =>{
+    if(name=== ''|| brand=== ''|| price=== '' ){
+      toast.error("Fill all the details");
+    }
+    else {setProducts([
       ...products,
       {
         name,
@@ -20,7 +24,11 @@ const ProductsList = () => {
         id: new Date().getTime(),
       },
     ]);
-
+    setName("");
+    setBrand("");
+    serPrice("");
+  };
+}
   const removeProduct = (selectedId) =>
     setProducts(products.filter((p) => p.id !== selectedId));
 
