@@ -26,7 +26,8 @@ const ProductsList = () => {
     ]);
     setName("");
     setBrand("");
-    serPrice("");
+    setPrice("");
+    toast.success(name + 'Product added');
   };
 }
   const removeProduct = (selectedId) =>
