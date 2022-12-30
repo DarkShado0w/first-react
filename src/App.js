@@ -10,21 +10,34 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 function App() {
   const [selectedList, setSelectedList]= useState("");
+  const LISTS = [
+    {
+      name: 'productList',
+      title: "Products List",
+      component: <ProductsList />
+    },
+    {
+      name: 'counter',
+      title: "Counter",
+      component: <Counter />
+    },  
+  ];
 return ( 
   <div className="App">
-    <button
-    onClick={()=> setSelectedList("productList")}
-    className={selectedList === "productList" ? "selected" : ""} 
+   {LISTS.map(l=>( <button
+   key={l.name}
+    onClick={()=> setSelectedList(l.name)}
+    className={selectedList === "l.name" ? "selected" : ""} 
     > 
-    Products List
-    </button>
+    {l.title}
+    </button>))}
     <button
     onClick={()=> setSelectedList("counter")}
     className={selectedList === "counter" ? "selected" : ""} 
     > 
     Counter
     </button>
-  {selectedList === "productList" && <ProductsList />}
+  {LISTS.map((l) => selectedList === "l.name" && l.component)}
   {selectedList === "counter" && <Counter />}
   {selectedList === "" && <h1>Please select any list</h1>}
   <ProductsList />
