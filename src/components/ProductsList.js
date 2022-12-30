@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { BsTrash } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
 import { toast } from "react-toastify";
@@ -11,6 +11,9 @@ const ProductsList = () => {
   const [selectedProduct, setSelectdProduct] = useState(null);
   const [editMode, setEditMode] = useState(false);
 
+  const nameRef =useRef(null);
+  const brandRef = useRef(null);
+  const priceRef = useRef(null);
   const addProduct = () =>{
     if(name=== ''|| brand=== ''|| price=== '' ){
       toast.error("Fill all the details");
@@ -27,7 +30,8 @@ const ProductsList = () => {
     setName("");
     setBrand("");
     setPrice("");
-    toast.success(name + 'Product added');
+    toast.success(name + "Product Updated");
+    nameRef?.current.focus();
   };
 }
   const removeProduct = (selectedId) =>
@@ -85,6 +89,7 @@ return (
           name="name"
           id="name"
           value={name}
+          ref={nameRef}
           onChange={(e) => setName(e.target.value)}
           placeholder="Product Name"
         />
@@ -92,13 +97,16 @@ return (
           name="brand"
           id="brand"
           value={brand}
+          ref={brandRef}
           onChange={(e) => setBrand(e.target.value)}
           placeholder="Brand"
         />
         <input
+        
           name="price"
           id="price"
           value={price}
+          ref={priceRef}
           onChange={(e) => setPrice(e.target.value)}
           placeholder="Price"
           type="number"
