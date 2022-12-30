@@ -34,6 +34,16 @@ const ProductsList = () => {
     nameRef?.current.focus();
   };
 }
+const handlePressEnterAtPrice =(e) =>{
+  if(e.code === 'Enter'){
+    if(editMode){
+      updateProduct();
+    }
+    else{
+      addProduct();
+    }
+  }
+};
   const removeProduct = (selectedId) =>
     setProducts(products.filter((p) => p.id !== selectedId));
 
@@ -91,6 +101,7 @@ return (
           value={name}
           ref={nameRef}
           onChange={(e) => setName(e.target.value)}
+          onKeyDown={(e) => e.code === "Enter" ? brandRef?.current.focus():void 0}
           placeholder="Product Name"
         />
         <input
@@ -99,6 +110,7 @@ return (
           value={brand}
           ref={brandRef}
           onChange={(e) => setBrand(e.target.value)}
+          onKeyDown={(e) => e.code === "Enter" ? priceRef?.current.focus():void 0}
           placeholder="Brand"
         />
         <input
@@ -108,6 +120,7 @@ return (
           value={price}
           ref={priceRef}
           onChange={(e) => setPrice(e.target.value)}
+          onKeyDown={handlePressEnterAtPrice}
           placeholder="Price"
           type="number"
         />

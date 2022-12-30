@@ -46,3 +46,7 @@
 .product .col {
   flex-basis: 20%;
 }
+.selected {
+  background-color: black;
+  color:white
+}
