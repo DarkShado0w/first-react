@@ -8,6 +8,8 @@ import { BsPlusCircle } from "react-icons/bs";
 import ProductsList from "./components/ProductsList";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import {Routes} from "react-router";
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 function App() {
   const [selectedList, setSelectedList]= useState("");
   const LISTS = [
@@ -37,11 +39,16 @@ return (
     > 
     Counter
     </button>
-  {LISTS.map((l) => selectedList === "l.name" && l.component)}
-  {selectedList === "counter" && <Counter />}
-  {selectedList === "" && <h1>Please select any list</h1>}
-  <ProductsList />
+  {/* {LISTS.map((l) => selectedList === l.name && l.component)} */}
+  {/* {selectedList === "" && <h1>Please select any list</h1>} */}
+  <Routes>
+    <Route path="/" element={<h1>Welcome</h1>} />
+    <Route path="productsList" element={<ProductsList />} />
+    <Route path="counter" element={<Counter />} />
+  </Routes>
   <ToastContainer />
+  {/* {selectedList === "counter" && <Counter />} */}
+  
 </div>
 );
 }

@@ -3,6 +3,7 @@ import { BsTrash } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
