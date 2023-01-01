@@ -15,30 +15,28 @@ function App() {
   const LISTS = [
     {
       name: 'productList',
+      path: 'productList',
       title: "Products List",
       component: <ProductsList />
     },
     {
       name: 'counter',
+      path: 'counter',
       title: "Counter",
       component: <Counter />
     },  
   ];
 return ( 
   <div className="App">
-   {LISTS.map(l=>( <button
+   {LISTS.map(l=>( <a
    key={l.name}
+   href={l.path}
     onClick={()=> setSelectedList(l.name)}
     className={selectedList === "l.name" ? "selected" : ""} 
     > 
     {l.title}
-    </button>))}
-    <button
-    onClick={()=> setSelectedList("counter")}
-    className={selectedList === "counter" ? "selected" : ""} 
-    > 
-    Counter
-    </button>
+    </a>))}
+    
   {/* {LISTS.map((l) => selectedList === l.name && l.component)} */}
   {/* {selectedList === "" && <h1>Please select any list</h1>} */}
   <Routes>
