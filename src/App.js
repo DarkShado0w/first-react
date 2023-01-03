@@ -6,44 +6,69 @@ import Counter from "./Counter";
 import { useState } from "react";
 import { BsPlusCircle } from "react-icons/bs";
 import ProductsList from "./components/ProductsList";
+// import BillingList from "./components/BillingList";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import {Routes} from "react-router";
 import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import {GrProductHunt} from 'react-icons/gr';
+import {SiCounterstrike} from 'react-icons/si';
+import { BiMenu } from "react-icons/bi";
+
 function App() {
   const [selectedList, setSelectedList]= useState("");
+  const [expanded, setExpanded]= useState("");
   const LISTS = [
     {
-      name: 'productList',
-      path: 'productList',
+      name: 'productsList',
+      path: 'productsList',
       title: "Products List",
-      component: <ProductsList />
+      component: <ProductsList />,
+      icon: <GrProductHunt />
     },
     {
       name: 'counter',
       path: 'counter',
       title: "Counter",
-      component: <Counter />
+      component: <Counter />,
+      icon: <SiCounterstrike />
+     
     },  
+  
   ];
 return ( 
   <div className="App">
-   {LISTS.map(l=>( <a
+    <div className="container">
+    <div className="links">
+    <div className="burger-menu">
+    <div>
+        <BiMenu  size={32} onClick={(e) => setExpanded(!expanded)}/>
+      </div>
+      </div>
+   {LISTS.map(l=>( <NavLink
    key={l.name}
-   href={l.path}
-    onClick={()=> setSelectedList(l.name)}
-    className={selectedList === "l.name" ? "selected" : ""} 
+   to={l.path}
+   className="link"
+    // onClick={()=> setSelectedList(l.name)}
+    // className={selectedList === "l.name" ? "selected" : ""} 
     > 
-    {l.title}
-    </a>))}
-    
+    {l.icon}
+    {expanded && <span>{l.title}</span>}
+  
+    </NavLink>))}
+    </div>
   {/* {LISTS.map((l) => selectedList === l.name && l.component)} */}
   {/* {selectedList === "" && <h1>Please select any list</h1>} */}
+  <div className="page-container"></div>
   <Routes>
     <Route path="/" element={<h1>Welcome</h1>} />
     <Route path="productsList" element={<ProductsList />} />
     <Route path="counter" element={<Counter />} />
+    <Route path="billingList" element={<billingList/>} />
   </Routes>
+  </div>
   <ToastContainer />
   {/* {selectedList === "counter" && <Counter />} */}
   

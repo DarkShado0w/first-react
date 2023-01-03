@@ -46,7 +46,33 @@
 .product .col {
   flex-basis: 20%;
 }
-.selected {
+.container{
+display: flex;
+}
+.links{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  min-height: 100vh;
+}
+.burger-menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link {
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 20px;
+  transition:all 0.5s;
+}
+.link:hover{
+  background-color: #61dafb;
+
+}
+.selected, .active {
   background-color: black;
-  color:white
+  color:white;
+  text-decoration: none;
+  padding: 10px 15px;
 }
