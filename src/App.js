@@ -16,10 +16,23 @@ import { NavLink } from 'react-router-dom';
 import {GrProductHunt} from 'react-icons/gr';
 import {SiCounterstrike} from 'react-icons/si';
 import { BiMenu } from "react-icons/bi";
-
+import styled from "styled-components";
+const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  min-height: 100vh;
+  transition: all 0.5s;
+  `;
+  const Pagecontainer = styled.div`
+  width: ${(props)=> props.width || 1000}px;
+  background-color: ${(props)=> props.bgcolor || "#ffffff"};
+  transition: all 0.5s; 
+  `;
 function App() {
   const [selectedList, setSelectedList]= useState("");
   const [expanded, setExpanded]= useState("");
+
   const LISTS = [
     {
       name: 'productsList',
@@ -38,10 +51,14 @@ function App() {
     },  
   
   ];
+  // const Sidebar = ({ expanded,setExpanded}) =>{
+
+ 
 return ( 
   <div className="App">
     <div className="container">
-    <div className="links">
+      
+    <div className={`links ${expanded ? "": 'not-expanded'}`}>
     <div className="burger-menu">
     <div>
         <BiMenu  size={32} onClick={(e) => setExpanded(!expanded)}/>
@@ -74,5 +91,6 @@ return (
   
 </div>
 );
-}
+};
+
 export default App;
