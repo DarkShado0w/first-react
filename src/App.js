@@ -17,6 +17,8 @@ import {GrProductHunt} from 'react-icons/gr';
 import {SiCounterstrike} from 'react-icons/si';
 import { BiMenu } from "react-icons/bi";
 import styled from "styled-components";
+import { BiSidebar } from "react-icons/bi";
+
 const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,6 +26,7 @@ const LinksContainer = styled.div`
   min-height: 100vh;
   transition: all 0.5s;
   `;
+
   const Pagecontainer = styled.div`
   width: ${(props)=> props.width || 1000}px;
   background-color: ${(props)=> props.bgcolor || "#ffffff"};
@@ -31,7 +34,7 @@ const LinksContainer = styled.div`
   `;
 function App() {
   const [selectedList, setSelectedList]= useState("");
-  const [expanded, setExpanded]= useState("");
+  const [expanded, setExpanded]= useState(true);
 
   const LISTS = [
     {
@@ -48,22 +51,18 @@ function App() {
       component: <Counter />,
       icon: <SiCounterstrike />
      
-    },  
-  
+    }, 
   ];
-  // const Sidebar = ({ expanded,setExpanded}) =>{
-
- 
 return ( 
   <div className="App">
     <div className="container">
-      
+    <LinksContainer>
     <div className={`links ${expanded ? "": 'not-expanded'}`}>
-    <div className="burger-menu">
+    <div className="burger-menu"> </div>
     <div>
         <BiMenu  size={32} onClick={(e) => setExpanded(!expanded)}/>
       </div>
-      </div>
+     
    {LISTS.map(l=>( <NavLink
    key={l.name}
    to={l.path}
@@ -73,9 +72,10 @@ return (
     > 
     {l.icon}
     {expanded && <span>{l.title}</span>}
-  
+    
     </NavLink>))}
     </div>
+    </LinksContainer>
   {/* {LISTS.map((l) => selectedList === l.name && l.component)} */}
   {/* {selectedList === "" && <h1>Please select any list</h1>} */}
   <div className="page-container"></div>
