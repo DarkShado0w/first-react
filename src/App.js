@@ -22,7 +22,7 @@ import { BiSidebar } from "react-icons/bi";
 const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: ${(props)=> props.width || 200}px;
   min-height: 100vh;
   transition: all 0.5s;
   `;
@@ -53,10 +53,11 @@ function App() {
      
     }, 
   ];
+
 return ( 
   <div className="App">
     <div className="container">
-    <LinksContainer>
+    <LinksContainer width={expanded ? 220 : 90}>
     <div className={`links ${expanded ? "": 'not-expanded'}`}>
     <div className="burger-menu"> </div>
     <div>
